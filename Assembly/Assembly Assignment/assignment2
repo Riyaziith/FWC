@@ -1,0 +1,68 @@
+.include"/sdcard/FWC/assembly/assemblyassignment2/m328Pdef.inc"
+
+ldi r17, 0b11100011 ; identifying the input pins
+out DDRD,r17
+
+ldi r17, 0b11111111 ; activting the pull ups
+out PORTD,r17
+
+ldi r16, 0b00000001 ; identifying pin 8 in port B as the output pins
+out DDRB,r16       ; declaring the output pin
+
+start:
+
+
+; read the inputs from the breadboard
+;we need to check if the pins 2,3,4 has either0 or 1 so,
+
+r18,0b00000100
+mov r19,r17
+and r19,r18
+shiftz:
+r20,0b00000010
+lsr r19
+dec r20
+brne shiftz
+.DEF Z = r19
+
+r18, 0b00001000
+mov r21,r17
+and r21,r18
+shifty:
+r20,0b00000011
+lsr r21
+dec r20
+brne shifty
+.DEF Y = r21
+
+r18,0b00010000
+mov r22,r17
+and r22,r18
+shiftx:
+r20,0b00000100
+lsr r22
+dec r20
+brne shiftx
+.DEF X = r22
+
+mov r23,r19
+mov r24,r21
+mov r25,r22
+
+com r23
+com r24
+com r25
+
+.DEF X1 = r23
+.DEF Y1 = r24
+.DEF Z1 = r25
+
+and X,Y1
+and Y,X1
+or X,Y
+
+out PORTB, X
+
+rjmp start
+
+
