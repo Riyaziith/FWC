@@ -1,7 +1,7 @@
 #include<Arduino.h>
 
 
-int X, Y, Z, F;
+int X, Y, F;
 
 void setup() {
   pinMode(2, INPUT_PULLUP);
