@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage[none]{hyphenat}
+\usepackage{listings}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{extarrows}
+\usepackage[utf8]{inputenc}
+\lstset{
+	 frame=single,
+	 breaklines=true
+	}
+	\usepackage{hyper ref}
+	\usepackage{atbegshi}
+	\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+	\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+		\providecommand{\abs}[1]{\left\vert#1\right\vert}
+	\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\begin{document}
+\begin{center}\title{\textbf{Vectors Assignment-1}}
+\date{\vspace{-5ex}}
+\maketitle
+\end{center}
+Section{12${th}$Math- Excercise 12.10.4.1}
+
+\begin{enumerate}
+\item Find $\abs{\vec{a}\times\vec{b}},if \vec{a}=\hat{i}-7\hat{j}+7\hat{k}\text{ and }\ \vec{b}=3\hat{i}-2\hat{j}+2\hat{k}$
+\end{enumerate}
+\solution
+The cross product of vectors $\vec{a}\text{ and } \vec{b}$ is given as:
+
+\begin{align}
+	\abs{\vec{a}\times\vec{b}}&= \mydet{ \hat{i} & \hat{j} & \hat{k}\\ 1 & -7 & 7\\ 3 & -2 & 2}\\
+	&=\hat{i}(-14+14) + \hat{j}(2-21) + \hat{k}(-2+21)\\
+	&=0\hat{i}-19\hat{j}+19\hat{k}\\
+	&=\abs{\vec{a}\times\vec{b}}=\sqrt{19^2+19^2}\\
+	&=\sqrt{2}\times19\\
+	&=19\sqrt{2}
+\end{align}
+\end{document}
+
+
